@@ -7,7 +7,7 @@ public class Administration {
     }
 
     public void addTransferStudent(String name, String surname, double mod1, double mod2, double mod3) {
-        students[index++] = Student.registrationTransfer(name, surname, mod1, mod2, mod3);
+        students[index++] = new Student(name, surname, mod1, mod2, mod3);
     }
 
     public void displayAllStudents() {

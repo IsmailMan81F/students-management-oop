@@ -15,19 +15,22 @@ public class Student {
         this.idNumber = idNumberBase++;
     }
 
-    public static Student registrationTransfer(String name, String surname, double mod1, double mod2,
+    public Student(String name, String surname, double mod1, double mod2,
             double mod3) {
-
-        Student student = new Student(name, surname);
-        student.averages[0] = mod1;
-        student.averages[1] = mod2;
-        student.averages[2] = mod3;
-        return student;
-
+        this.name = name;
+        this.surname = surname;
+        this.idNumber = idNumberBase++;
+        this.averages[0] = mod1;
+        this.averages[1] = mod2;
+        this.averages[2] = mod3;
     }
 
     public double calculateAverage() {
-        return (averages[0] + averages[1] + averages[2]) / 3;
+        double avg = 0;
+        for (int i = 0; i < averages.length; i++) {
+            avg += averages[i];
+        }
+        return avg / 3;
     }
 
     public void display() {
@@ -36,15 +39,18 @@ public class Student {
     }
 
     public String status() {
-        if (calculateAverage() > 18)
+
+        double avg = calculateAverage();
+
+        if (avg > 18)
             return "excellent";
-        else if (calculateAverage() > 16)
+        else if (avg > 16)
             return "very good";
-        else if (calculateAverage() > 15)
+        else if (avg > 15)
             return "good";
-        else if (calculateAverage() > 12)
+        else if (avg > 12)
             return "admitted";
-        else if (calculateAverage() > 10)
+        else if (avg > 10)
             return "retake";
         else
             return "excluded";
