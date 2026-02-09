@@ -35,4 +35,19 @@ public class Student {
                 this.idNumber, this.calculateAverage());
     }
 
+    public String status() {
+        if (calculateAverage() > 18)
+            return "excellent";
+        else if (calculateAverage() > 16)
+            return "very good";
+        else if (calculateAverage() > 15)
+            return "good";
+        else if (calculateAverage() > 12)
+            return "admitted";
+        else if (calculateAverage() > 10)
+            return "retake";
+        else
+            return "excluded";
+    }
+
 }
